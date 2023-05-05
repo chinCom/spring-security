@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div th:if="${param.error}">
+        Invalid username and password.
+    </div>
+    <div th:if="${param.logout}">
+        You have been logged out
+    </div>
+    <form th:action="@{/login}" method="post">
+        <div><label>User Name: <input type="text" name="username"></label></div>
+        <div><label>Password: <input type="password" name="password"></label></div>
+        <div><input type="submit" value="Sign in"></div>
+    </form>
+    <style>
+        /* Center the form on the page */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 100px;
+        }
+
+        /* Style the input fields and labels */
+        label {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Style the submit button */
+        input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+        }
+
+        /* Style the error and logout messages */
+        div {
+            padding: 10px;
+            margin-top: 20px;
+            font-size: 18px;
+            text-align: center;
+            color: #FF0000;
+            border: 1px solid #FF0000;
+            border-radius: 5px;
+            background-color: #FFE4E1;
+        }
+    </style>
+</body>
+
+</html>
